@@ -1,11 +1,315 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Tam Project.">
+  <meta name="keywords" content="MACA, multi-camera tracking">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MACA Project</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <h1>Test</h1>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MACA: Large Language Model Multi Agents for Referral Multi-Target Multi-Camera Tracking</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Tuan T. Nguyen</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Hoang H. Nguyen</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Hoang-Minh Dau</a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Hoang K. Tran</a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Sami Abu-orf</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Mahshid Malazizi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Tuan-Anh Hoang</a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Thanh-Nam Doan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Mina Sartipi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="#">Ngan Hoang Le</a><sup>1</sup>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Center of Urban Informatics and Progress, University of Tennessee at Chattanooga</span>
+            <span class="author-block"><sup>2</sup></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Referring multi-object tracking (Refer-MOT) has evolved as a robust paradigm that facilitates the tracking of any item
+            via natural language descriptions. Although existing Refer-MOT methodologies provide encouraging outcomes in
+            single-camera contexts, they do not adequately tackle the intricacies of multi-camera settings.
+          </p>
+          <p>
+           We introduce referencing Multi-Target Multi-Camera Tracking (Refer-MTMCT), which expands the referencing tracking paradigm to multi-camera
+          systems for the first time. Refer-MTMCT introduces a novel vision-language framework utilizing specialized agents
+          powered by large language models (LLMs) for query analysis, object detection, and cross-camera tracking. 
+          </p>
+          <p>
+            Our principal advances encompass an automated camera-adjacency network for trajectory alignment across perspectives, concurrent
+            multi-type object tracking, and a versatile plug-in architecture. The technology processes intricate inquiries such as
+            "Monitor the pedestrian clad in a blue T-shirt accompanied by two women from camera 1 to camera 3 between 3-5 PM." 
+          </p>
+          <p>
+            To facilitate research in this direction, we introduce Refer-CityFlow, a new dataset specifically designed for referring
+            multi-camera tracking. Extensive experiments on Refer-CityFlow, TAO, and other benchmarks demonstrate our model's
+            effectiveness across various object types and scenarios. Our work represents the first successful integration of
+            vision-language models with MTMCT, offering an intuitive and flexible solution for smart city applications.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demo Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Query 1</h2>
+          <p>
+            Track all red cars turn left at the intersection
+          </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="./static/videos/queryVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-3">Query 2</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Tracking yellow truck goes straight on left lane
+            </p>
+            <video id="matting-video" controls playsinline height="100%">
+              <source src="./static/videos/queryVideo.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Animation</h2>
+
+        <!-- Re-rendering. -->
+        <h3 class="title is-4">Re-rendering the input video</h3>
+        <div class="content has-text-justified">
+          <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+              <source src="./static/videos/matting.mp4" type="video/mp4">
+          </video>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The webpage template was originally made by the authors of the  <a
+              href="https://nerfies.github.io/">Nerfies project</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
